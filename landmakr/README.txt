@@ -1,26 +1,21 @@
-# bank 1: sequencer (base address 0xC00000)
+# BANK 1: SEQUENCER (base address 0xC00000)
 ## interrupt vector (0xC00000)
 ## sample info table (0xC00134)
 each entry is 20 bytes long, 
 seems to have information about instrument the sample belongs to, root/note to play at, note adjustment(?)
 
-are these in the same order 
-
-## os: control code string sub offsets (0xC058C8)
-## os: substituted strings (0xC059CC)
-## os: various display strings (0xC05C5D)
-## os: default song name? (0xC06FAF)
-"Song-00         "
-## os: default sequence name? (0xC06FBE)
-"Sequence-00     "
-## os: sequencer code (0xC0B39C)
+## sequencer os stuff
+0xC058C8: control code string sub offsets
+0xC059CC: substituted strings
+0xC05C5D: various display strings
+0xC0B39C: sequencer code
 0xC0C4BA: string control code parser
 0xC10D48: general trap handler?
 0xC11068: idle
 0xC111D0: duart putchar?
 0xC11284: ensoniq print
 0xC11276: ensoniq putchar
-## playback
+### playback
 0xC11DD8: copy note data to ram?
 0xC12AFA: copy tempo to ram?
 0xC14CB8: measure and beat control?
@@ -31,7 +26,7 @@ are these in the same order
 0xC18372: does a lot of ESP writes
 0xC192EE: more ESP writes
 
-# bank 2: sequences (base address 0xC20000)
+# BANK 2: SEQUENCES (base address 0xC20000)
 ## section 1: sequence data
 bank-relative s32: length
 bank-relative s32: negative number (?!?) 
